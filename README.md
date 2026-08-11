@@ -11,13 +11,17 @@ that an `omarchy update` can undo.
 
 The same page in the same Logseq, one theme switch apart.
 
-### [SpaceX Terrafab](https://github.com/AlexZeitler/omarchy-spacex-terrafab-theme)
+### SpaceX Terrafab Theme
 
 ![Logseq themed with SpaceX Terrafab](assets/logseq-spacex-terrafab.png)
 
-### [Quattro](https://github.com/AlexZeitler/omarchy-quattro-theme)
+Get it: [omarchy-spacex-terrafab-theme](https://github.com/AlexZeitler/omarchy-spacex-terrafab-theme)
+
+### Quattro Theme
 
 ![Logseq themed with Quattro](assets/logseq-quattro.png)
+
+Get it: [omarchy-quattro-theme](https://github.com/AlexZeitler/omarchy-quattro-theme)
 
 ## Install
 
