@@ -7,10 +7,24 @@ Works with every Omarchy theme that ships a `colors.toml`, including your own.
 No fork of Omarchy, no patched files under `~/.local/share/omarchy`, nothing
 that an `omarchy update` can undo.
 
+## Screenshots
+
+The same page in the same Logseq, one theme switch apart.
+
+### [SpaceX Terrafab](https://github.com/AlexZeitler/omarchy-spacex-terrafab-theme)
+
+![Logseq themed with SpaceX Terrafab](assets/logseq-spacex-terrafab.png)
+
+### [Quattro](https://github.com/AlexZeitler/omarchy-quattro-theme)
+
+![Logseq themed with Quattro](assets/logseq-quattro.png)
+
 ## Install
 
 ```bash
-git clone https://github.com/AlexZeitler/omarchy-logseq-theming ~/.local/share/omarchy-logseq-theming
+git clone https://github.com/AlexZeitler/omarchy-logseq-theming \
+  ~/.local/share/omarchy-logseq-theming
+
 ~/.local/share/omarchy-logseq-theming/install.sh
 ```
 
