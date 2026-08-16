@@ -4,8 +4,12 @@ Themes [Logseq](https://logseq.com) with your current [Omarchy](https://omarchy.
 theme, and re-themes it whenever you switch themes.
 
 Works with every Omarchy theme that ships a `colors.toml`, including your own.
-No fork of Omarchy, no patched files under `~/.local/share/omarchy`, nothing
-that an `omarchy update` can undo.
+No fork of Omarchy, no patched files inside Omarchy's own install directory,
+nothing that an `omarchy update` can undo.
+
+Supports Omarchy 4 ("Quattro"), which moved the generated theme into
+`~/.local/state/omarchy`, and earlier releases, which kept it in
+`~/.config/omarchy`.
 
 ## Screenshots
 
@@ -52,16 +56,20 @@ symlinks:
 `~/.config/omarchy/themed/logseq.css.tpl`
 : A template with Logseq's `--ls-*` CSS variables and Omarchy's colour
   placeholders. On every theme switch, `omarchy-theme-set-templates` fills it
-  from the theme's `colors.toml` and writes the result to
-  `~/.config/omarchy/current/theme/logseq.css`. This is the same mechanism
-  Omarchy uses for Obsidian, Alacritty and btop.
+  from the theme's `colors.toml` and writes the result into the current theme
+  directory as `logseq.css`. This is the same mechanism Omarchy uses for
+  Obsidian, Alacritty and btop.
 
 `~/.config/omarchy/hooks/theme-set.d/logseq`
 : A hook that `omarchy-theme-set` runs at the end of every theme switch. It
   copies the generated CSS into `<graph>/logseq/custom.css` for every graph.
 
-Both paths live under `~/.config/omarchy`, which belongs to you. Omarchy
+Both symlinks live under `~/.config/omarchy`, which belongs to you. Omarchy
 updates never write there, so the setup survives them.
+
+The current theme directory is `~/.local/state/omarchy/current/theme` on
+Omarchy 4 and `~/.config/omarchy/current/theme` on earlier releases. The hook
+tries the first path and falls back to the second.
 
 ## Your own CSS is safe
 

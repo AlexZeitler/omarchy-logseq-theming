@@ -10,7 +10,22 @@
 
 set -uo pipefail
 
-THEME_CSS="$HOME/.config/omarchy/current/theme/logseq.css"
+# Omarchy 4 ("Quattro") moved the generated theme out of the config directory
+# into the state directory. Older releases only have the config path, so try
+# the new location first and fall back to the old one.
+CURRENT_THEME_DIRS=(
+  "$HOME/.local/state/omarchy/current/theme"
+  "$HOME/.config/omarchy/current/theme"
+)
+
+THEME_CSS=""
+for dir in "${CURRENT_THEME_DIRS[@]}"; do
+  if [[ -f $dir/logseq.css ]]; then
+    THEME_CSS="$dir/logseq.css"
+    break
+  fi
+done
+
 GRAPHS_FILE="$HOME/.config/omarchy-logseq/graphs"
 LOGSEQ_GRAPHS_DIR="$HOME/.logseq/graphs"
 
@@ -69,7 +84,7 @@ write_css() {
   mv "$tmp" "$target"
 }
 
-[[ $MODE == "apply" && ! -f $THEME_CSS ]] && exit 0
+[[ $MODE == "apply" && -z $THEME_CSS ]] && exit 0
 
 while read -r graph; do
   [[ -n $graph && -d $graph/logseq ]] || continue
